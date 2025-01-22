@@ -70,4 +70,7 @@ select   pplname
                     order by count(p.pplname) desc )
                         where rownum = 1;
 -- 11. 전문가 별점에 가장 많이 참여한 전문가의 이름을 가져오시오.
+select expertName
+from (select e.expertName,count(e.expertName) from tblExpertScore es join tblExpert e on es.seqExpert = e.seqExpert group by e.expertName order by count(e.expertName) desc)
+where rownum = 1;
 
